@@ -17,9 +17,11 @@ Before changing files:
      approval, asset, or validation defects.
    - `tdd-implementation` for non-trivial implementation work.
 3. Define acceptance criteria and validation commands before editing.
-4. Ask concise questions when critical deck intake is missing or contradictory.
+4. Ask all known clarification questions before execution starts, during
+   triage/plan, when critical deck intake is missing or contradictory.
    Otherwise, batch local changes and validation, then report the result at
-   handoff instead of asking for file-by-file approval.
+   handoff instead of asking for file-by-file approval or mid-execution
+   preferences.
 
 Reuse the template, shared components, style catalog, and local media
 conventions. Keep generic visuals brand-neutral. For visual changes, run the

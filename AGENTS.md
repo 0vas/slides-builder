@@ -36,29 +36,36 @@ this repo.
 2. Define acceptance criteria before implementation. Treat TDD broadly:
    tests first for code behavior, criteria/checks first for decks, docs,
    visuals, workflows, and deployment changes.
-3. Identify the validation surface before editing: unit/integration tests,
+3. Complete the question window during triage/plan. Ask every known
+   clarification question before execution starts, grouped into at most three
+   concise questions when user input is required. Once implementation begins,
+   do not interrupt with new preference or detail questions; proceed from the
+   plan and documented assumptions unless a newly discovered blocker could not
+   reasonably have been identified during triage.
+4. Identify the validation surface before editing: unit/integration tests,
    build checks, screenshots, link checks, workflow syntax checks, or manual
    inspection evidence.
-4. Use the existing structure and components when possible.
-5. Make scoped changes only; avoid unrelated refactors.
-6. After meaningful changes, run `make check DECK=<slug>`.
-7. For new decks or substantial visual changes, inspect every slide and visible
+5. Use the existing structure and components when possible.
+6. Make scoped changes only; avoid unrelated refactors.
+7. After meaningful changes, run `make check DECK=<slug>`.
+8. For new decks or substantial visual changes, inspect every slide and visible
    click/state at 1440x900 when a local server is available. For small isolated
    visual edits, inspect every changed slide plus adjacent/risky slides.
-8. Validate the acceptance criteria before handoff and report any criterion
+9. Validate the acceptance criteria before handoff and report any criterion
    that could not be verified.
-9. Use `slide-continuous-learning` to update the narrowest durable spec, skill,
+10. Use `slide-continuous-learning` to update the narrowest durable spec, skill,
    doc, template, or validator whenever a fixed issue should prevent future
    decks from repeating the same failure.
-10. Document new reusable decisions in `docs/slide-guidelines.md`.
-11. Add or update a checkpoint under `docs/checkpoints/` when the user asks to
+11. Document new reusable decisions in `docs/slide-guidelines.md`.
+12. Add or update a checkpoint under `docs/checkpoints/` when the user asks to
    pause, checkpoint, or continue later.
 
-For routine local edits, validation, screenshots, and asset organization, keep
-working and report the final diff and validation evidence at handoff. Avoid
-interrupting the user for file-by-file approvals; only stop for user input when
-a critical deck requirement is missing, a destructive action is needed, or an
-external policy/tool boundary genuinely requires approval.
+For routine local edits, validation, screenshots, and asset organization, ask
+needed questions up front during triage/plan, then keep working and report the
+final diff and validation evidence at handoff. Avoid interrupting the user for
+file-by-file approvals or mid-execution preferences; only stop after execution
+starts when a critical blocker is newly discovered, a destructive action is
+needed, or an external policy/tool boundary genuinely requires approval.
 
 ## TDD And Quality Criteria
 
@@ -176,8 +183,8 @@ kill a running dev server when the requested deck cannot be resolved.
   implementation. They live under `.agents/skills/` using the open Agent Skills
   structure for reuse by future projects and users.
 - Read `docs/new-deck-agent-guide.md` before scaffolding a new presentation.
-- Follow `docs/deck-generation-workflow.md`: Triage -> Intake -> Brief -> Plan
-  -> Tasks -> Implement -> Validate -> Handoff.
+- Follow `docs/deck-generation-workflow.md`: Triage -> Questions -> Intake ->
+  Brief -> Plan -> Tasks -> Implement -> Validate -> Learn -> Handoff.
 - Before scaffolding, create or update `decks/<slug>/deck.brief.md` from
   `docs/deck-brief-template.md`. Treat it as the source of truth for the deck.
 - Intake fields that must be recorded are: topic/title, audience, audience
@@ -186,10 +193,11 @@ kill a running dev server when the requested deck cannot be resolved.
 - Critical intake fields are: topic/title, audience, audience level, duration,
   desired outcome, required points, tone/context, constraints, and visual
   background mode.
-- If any critical field is missing or contradictory, ask the user before
-  scaffolding. Ask at most three concise grouped questions. Infer only
-  non-critical fields such as slug, palette, slide count, and component choices,
-  then document those assumptions in the brief.
+- If any critical field is missing or contradictory, ask all known
+  clarification questions before scaffolding or implementation starts. Ask at
+  most three concise grouped questions. Infer only non-critical fields such as
+  slug, palette, slide count, and component choices, then document those
+  assumptions in the brief.
 - Start from `decks/_template`.
 - Choose a palette from `docs/style-catalog.md` and apply it with a
   `palette-*` class in both `class` and `defaults.class`.

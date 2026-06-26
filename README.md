@@ -105,13 +105,19 @@ lorem ipsum, local wrappers, and minimal examples.
 
 Give `slides-builder` the talk objective, audience, duration, tone,
 constraints, required points, available assets, and desired visual direction.
-If critical information is missing, the agent must ask before scaffolding.
+If critical information is missing, the agent must ask all known clarification
+questions before execution starts, during triage/plan.
 
 Recommended flow:
 
 ```text
-Triage -> Intake -> Brief -> Plan -> Tasks -> Implement -> Validate -> Learn -> Handoff
+Triage -> Questions -> Intake -> Brief -> Plan -> Tasks -> Implement -> Validate -> Learn -> Handoff
 ```
+
+All known clarification questions belong in `Triage`, `Questions`, or `Plan`
+before execution starts. After implementation begins, the agent should proceed
+from documented assumptions instead of pausing for new preference questions,
+unless a genuinely new blocker appears.
 
 ### Example Prompt
 

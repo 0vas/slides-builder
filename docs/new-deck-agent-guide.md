@@ -15,7 +15,8 @@ motion, and GitHub Pages deployment readiness.
 The user should provide the talk goal and all available context. The agent may
 advance with reasonable assumptions only when non-critical information is
 missing. If audience, duration, desired outcome, constraints, required points,
-or visual mode are missing, the agent must ask before scaffolding.
+or visual mode are missing, the agent must ask all known clarification
+questions before scaffolding or implementation starts.
 
 ## Context To Read First
 
@@ -72,42 +73,45 @@ Non-critical fields that may be inferred and documented:
 1. Read `docs/deck-generation-workflow.md`.
 2. Use `.agents/skills/slide-spec-triage/SKILL.md` to validate the user's
    specification before creating files.
-3. Complete intake and ask for missing critical fields.
-4. Define a URL-friendly slug.
-5. Create `decks/<slug>/deck.brief.md` from
+3. Ask all known clarification questions before execution starts. Group
+   critical gaps into at most three concise questions; infer non-critical
+   details and record assumptions instead of pausing later.
+4. Complete intake from the prompt, triage answers, and documented assumptions.
+5. Define a URL-friendly slug.
+6. Create `decks/<slug>/deck.brief.md` from
    `docs/deck-brief-template.md`.
-6. Record requirements, assumptions, narrative plan, asset plan, and validation
+7. Record requirements, assumptions, narrative plan, asset plan, and validation
    plan in the brief.
-7. Copy or adapt `decks/_template/`.
-8. Replace lorem ipsum with real deck narrative.
-9. Create or adjust `decks/<slug>/styles/index.css` importing the shared theme.
-10. Choose a palette from `docs/style-catalog.md` and apply it in `class` and
+8. Copy or adapt `decks/_template/`.
+9. Replace lorem ipsum with real deck narrative.
+10. Create or adjust `decks/<slug>/styles/index.css` importing the shared theme.
+11. Choose a palette from `docs/style-catalog.md` and apply it in `class` and
    `defaults.class`.
-11. Include the required structural slides: title/cover, data-driven speaker
+12. Include the required structural slides: title/cover, data-driven speaker
     profile, and final close/Q&A.
-12. Create `decks/<slug>/data/speaker.js` for talk-specific speaker roles or
+13. Create `decks/<slug>/data/speaker.js` for talk-specific speaker roles or
     tags, importing `person` from `data/speaker/person.js`.
-13. Reuse `shared/components/` before creating new components.
-14. Create wrappers for shared components used from Markdown.
-15. Choose visuals from the catalog: mockup, metric, table, matrix, hierarchy,
+14. Reuse `shared/components/` before creating new components.
+15. Create wrappers for shared components used from Markdown.
+16. Choose visuals from the catalog: mockup, metric, table, matrix, hierarchy,
     graph, sequence, timeline, swimlane, media, quote, layers, 3D, Mermaid, or
     ECharts.
-16. Whenever a slide needs an image, search proactively for SVG Repo icons and
+17. Whenever a slide needs an image, search proactively for SVG Repo icons and
     editorial images from Pexels, Unsplash, Pixabay, or similar sources.
     Choose a distinct source image for each distinct slide role unless the
     brief intentionally calls for a repeated motif. Download everything into
     `decks/<slug>/public/media/` and record source/license notes.
-17. Use `TypingTitle` only on covers or key section breaks.
-18. Aim for 24-32 slides for a 30-minute talk unless the brief says otherwise.
-19. Validate with `make check DECK=<slug>`.
-20. Inspect screenshots of every slide and visible click/state at 1440x900.
+18. Use `TypingTitle` only on covers or key section breaks.
+19. Aim for 24-32 slides for a 30-minute talk unless the brief says otherwise.
+20. Validate with `make check DECK=<slug>`.
+21. Inspect screenshots of every slide and visible click/state at 1440x900.
     Confirm at least the cover, speaker profile, section breaks, dense slides,
     media/mockup/chart slides, closing, Q&A, and navigation have no overlap,
     clipping, unreadable contrast, or section markers that look like render
     artifacts.
-21. Update `deck.brief.md` with final handoff notes.
-22. Add the stable deck slug to the **Deploy Slides** workflow dropdown.
-23. Update README and catalogs when reusable components, styles, or workflows
+22. Update `deck.brief.md` with final handoff notes.
+23. Add the stable deck slug to the **Deploy Slides** workflow dropdown.
+24. Update README and catalogs when reusable components, styles, or workflows
     change.
 
 ## ECharts Criteria

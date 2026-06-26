@@ -21,7 +21,7 @@ The decision is recorded in
 `docs/adr/0001-spec-kit-lightweight-deck-generation.md`.
 
 ```text
-Triage -> Intake -> Brief -> Plan -> Tasks -> Implement -> Validate -> Handoff
+Triage -> Questions -> Intake -> Brief -> Plan -> Tasks -> Implement -> Validate -> Learn -> Handoff
 ```
 
 The repository does not maintain a separate OpenSpec-style change tree for
@@ -34,34 +34,48 @@ normal deck creation. A local `deck.brief.md` is enough for this use case.
    Ask before creating files if critical information is missing or
    contradictory.
 
-2. **Intake**
+2. **Questions**
+   Ask all known clarification questions here, before implementation starts.
+   Group critical gaps into at most three concise questions. Do not defer
+   preference or detail questions into execution; infer non-critical details
+   and record assumptions.
+
+3. **Intake**
    Complete the required fields from the prompt and triage answers. Record
    reasonable assumptions for non-critical fields.
 
-3. **Brief**
+4. **Brief**
    Create `decks/<slug>/deck.brief.md` from
    `docs/deck-brief-template.md`. Record prompt, requirements, acceptance
    criteria, constraints, required structural slides, assets, assumptions, and
-   open questions.
+   questions resolved before execution.
 
-4. **Plan**
+5. **Plan**
    Define narrative, approximate slide count, background mode, palette,
-   components, asset strategy, and validation surface.
+   components, asset strategy, validation surface, and assumptions that will
+   govern execution.
 
-5. **Tasks**
+6. **Tasks**
    Break the plan into concrete tasks: scaffold, content, components, media,
    metadata, styles, validation, and documentation.
 
-6. **Implement**
+7. **Implement**
    Copy or adapt `decks/_template`, reuse existing components, and create local
-   components only when the catalog does not cover the need.
+   components only when the catalog does not cover the need. Once this starts,
+   continue from the plan without asking new preference questions unless a
+   newly discovered blocker could not reasonably have been identified during
+   triage/plan.
 
-7. **Validate**
+8. **Validate**
    Run `make check DECK=<slug>`. For new decks or substantial visual changes,
    inspect every slide and visible click/state at 1440x900. For small isolated
    visual edits, inspect every changed slide plus adjacent/risky slides.
 
-8. **Handoff**
+9. **Learn**
+   Use `slide-continuous-learning` when a fixed defect reveals a reusable rule
+   that should update a spec, skill, doc, template, or validator.
+
+10. **Handoff**
    Summarize changes, commands run, screenshot scope, assumptions, pending
    work, reusable lessons captured, and key paths.
 
@@ -86,6 +100,8 @@ normal deck creation. A local `deck.brief.md` is enough for this use case.
 | Palette | Yes | Choose from `docs/style-catalog.md` based on background mode. |
 
 Ask at most three concise grouped questions when critical fields are missing.
+All known questions must be asked during triage/questions/plan before
+execution starts.
 
 ## Acceptance Criteria
 
@@ -101,4 +117,6 @@ A generated deck satisfies this workflow when:
 - new decks have every slide and visible click/state inspected at 1440x900;
 - essential rendering does not depend on the internet;
 - it records background mode and palette;
+- all required questions were asked before implementation, with non-critical
+  gaps handled as documented assumptions;
 - inferred information and open gaps are documented.

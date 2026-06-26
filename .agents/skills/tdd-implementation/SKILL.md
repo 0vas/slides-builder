@@ -13,18 +13,21 @@ Use test-driven development broadly: define expected behavior and quality gates 
 
 1. Understand the request and inspect the local context.
 2. Write acceptance criteria before editing. Keep them concrete and verifiable.
-3. Identify the validation surface:
+3. Complete the question window before editing. Ask all known clarifying
+   questions during triage/plan, then proceed from the criteria and documented
+   assumptions without pausing for mid-execution preferences.
+4. Identify the validation surface:
    - Unit/integration tests for code behavior.
    - Build/type/lint checks for compile and contract safety.
    - Screenshots/browser checks for visual work.
    - Link/render/export checks for docs and decks.
    - CI/workflow dry runs or syntax checks for automation.
-4. Create or update a failing/targeted test first when the codebase has a suitable test harness. If no automated harness exists, record the command or inspection that will fail before the fix or directly validate the changed behavior after.
-5. Implement the smallest scoped change that satisfies the criteria.
-6. Refactor only inside the touched scope and only when it improves clarity or removes real duplication.
-7. Run all selected validations. Add broader checks when the change touches shared behavior, public interfaces, deployment, or reusable components.
-8. If validation fails, fix and rerun until the criteria pass or a genuine blocker remains.
-9. Final response must include the criteria covered, commands/checks run, failures fixed, and any unverified criterion.
+5. Create or update a failing/targeted test first when the codebase has a suitable test harness. If no automated harness exists, record the command or inspection that will fail before the fix or directly validate the changed behavior after.
+6. Implement the smallest scoped change that satisfies the criteria.
+7. Refactor only inside the touched scope and only when it improves clarity or removes real duplication.
+8. Run all selected validations. Add broader checks when the change touches shared behavior, public interfaces, deployment, or reusable components.
+9. If validation fails, fix and rerun until the criteria pass or a genuine blocker remains.
+10. Final response must include the criteria covered, commands/checks run, failures fixed, and any unverified criterion.
 
 ## Acceptance Criteria Shape
 
@@ -40,4 +43,7 @@ Use this compact form in working notes:
 - Do not invent heavyweight test infrastructure for tiny changes.
 - Do not skip validation because the change is "only docs" or "only slides"; use an appropriate check.
 - Do not mark work complete when acceptance criteria are untested unless you clearly report the gap.
+- Do not interrupt execution with new preference questions that should have
+  been asked during triage/plan. Use documented assumptions unless a newly
+  discovered blocker could not reasonably have been known earlier.
 - Prefer existing test patterns and repo commands over new tooling.

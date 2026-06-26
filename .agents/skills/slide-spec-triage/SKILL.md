@@ -7,9 +7,10 @@ description: Validate a user-provided slide-deck specification before creating, 
 
 ## Purpose
 
-Use this skill before `slide-deck-generator` when a deck request might be
-incomplete. Decide whether the user supplied enough information to create or
-modify slides responsibly. If not, ask only for the missing critical details.
+Use this skill before execution when a deck request might be incomplete. Decide
+whether the user supplied enough information to create or modify slides
+responsibly. If not, ask only for the missing critical details before any file
+creation, scaffolding, or implementation begins.
 
 ## Workflow
 
@@ -19,11 +20,13 @@ modify slides responsibly. If not, ask only for the missing critical details.
 3. Ask before implementation when any critical field is `missing` or
    `contradictory`.
 4. Ask at most three concise grouped questions. Combine related gaps.
-5. Apply mandatory deck structure: title/cover slide, data-driven speaker
+5. Treat this as the question window. Ask all known clarification questions
+   here; do not defer optional preference questions into implementation.
+6. Apply mandatory deck structure: title/cover slide, data-driven speaker
    profile slide, and final closing/Q&A slide.
-6. Infer non-critical fields when reasonable, and state those assumptions in
+7. Infer non-critical fields when reasonable, and state those assumptions in
    the future `deck.brief.md`.
-7. If the spec is complete, produce a compact triage result and proceed to the
+8. If the spec is complete, produce a compact triage result and proceed to the
    deck-generation or implementation workflow.
 
 ## Critical Intake Fields
@@ -66,6 +69,10 @@ deck-specific role/tag assumptions in the brief.
 Ask only questions that change the deck materially. Do not ask for details that
 can be inferred from the topic, repo defaults, or a reasonable presentation
 pattern. Ask in the same language the user used unless they request otherwise.
+All questions must be asked before execution starts as part of triage or plan.
+After implementation begins, continue from the triage result and documented
+assumptions unless a newly discovered blocker could not reasonably have been
+identified during triage.
 
 Use this shape:
 

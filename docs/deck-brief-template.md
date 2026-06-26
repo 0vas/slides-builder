@@ -1,8 +1,11 @@
 # Deck Brief: <title>
 
 This file is the source of truth for a deck created by `slides-builder`.
-Complete it before scaffolding slides. If a critical field is missing, ask the
-user before creating files.
+Complete it before scaffolding slides. If a critical field is missing or
+contradictory, ask the user before creating files. Ask all known clarification
+questions during triage/plan; after execution starts, use documented
+assumptions unless a newly discovered blocker could not reasonably have been
+identified earlier.
 
 ## Source Prompt
 
@@ -49,10 +52,10 @@ requests it or the presentation context clearly justifies it.
 - <assumption 1>
 - <assumption 2>
 
-## Open Questions
+## Questions Resolved Before Execution
 
-- <question 1>
-- <question 2>
+- <question asked, answer received, or assumption used>
+- <question asked, answer received, or assumption used>
 
 ## Acceptance Criteria
 
@@ -94,8 +97,9 @@ and remain readable at 1440x900.
 
 Acceptance:
 
-- Given screenshots of the cover, a dense slide, and a media/mockup slide
-- When they are inspected
+- Given screenshots of every slide and visible click/state for new decks or
+  substantial visual changes
+- When they are inspected at 1440x900
 - Then there is no clipped text or unreadable essential content
 
 ### Build

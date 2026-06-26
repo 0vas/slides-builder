@@ -9,7 +9,7 @@ description: Create or substantially modify Slidev-style slide decks from a user
 
 1. Inspect the repository conventions before editing. Prefer existing agent specs, deck templates, component catalogs, style catalogs, and generation workflow docs when present.
 2. Define acceptance criteria before implementation. Include content completeness, required structural slides, audience fit, visual quality, background mode, asset handling, navigation/export behavior, and validation commands.
-3. Gather intake. Required critical fields are topic/title, audience, audience level, duration, desired outcome, required points, tone/context, constraints, visual background mode, and deliverables. Ask only when critical data is missing or contradictory.
+3. Complete the question window before implementation. Gather intake for topic/title, audience, audience level, duration, desired outcome, required points, tone/context, constraints, visual background mode, and deliverables. Ask only when critical data is missing or contradictory, and ask all known questions here instead of pausing later for preferences.
 4. Create or update the deck brief when the repo has a brief template or generation workflow. Record assumptions, asset plan, validation plan, and handoff notes.
 5. Reuse the local deck template, shared components, palette system, and media conventions. Put deck-specific media under the deck's local public/media folder or equivalent local asset tree.
 6. Use local/rendered assets. When a slide calls for an image, make image search and selection part of the implementation: search reputable free-media sources such as Pexels/Unsplash/Pixabay or SVG Repo, choose an asset that matches that slide's specific purpose, download it, keep source/license notes, and render it locally. Do not reuse the same editorial image as multiple “different” assets unless the brief explicitly calls for a repeated visual motif.
@@ -18,6 +18,11 @@ description: Create or substantially modify Slidev-style slide decks from a user
 9. Do not promise native PowerPoint animations in PPTX export. Slidev PPTX output is static snapshots; use hosted Slidev for live motion or model PPTX progression as separate slides/click states.
 10. Validate every acceptance criterion. Run the repo's deck check/build command, and for new decks capture/review every slide and visible click/state at 1440x900 before handoff. For smaller visual edits, capture every changed slide plus adjacent/risky slides.
 11. Handoff with changed files, validation results, known warnings, and any follow-up deployment step.
+
+After implementation starts, continue from the plan and documented assumptions.
+Only stop for user input if a newly discovered blocker could not reasonably
+have been identified during triage, if a destructive action is required, or if
+an external policy/tool boundary requires approval.
 
 ## Quality Criteria Template
 
