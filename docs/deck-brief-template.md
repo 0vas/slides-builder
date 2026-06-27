@@ -70,6 +70,8 @@ Acceptance:
 - Given a target audience member
 - When they finish the deck
 - Then they understand <desired outcome>
+- And the narrative plan has section depth and slide count appropriate for
+  <duration>
 
 ### Required Content
 

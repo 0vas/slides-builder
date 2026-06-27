@@ -14,6 +14,10 @@ DevSecOps, Platform Engineering, tooling categories, cloud, observability,
 learning path, certifications, close, and Q&A. Use palette-crystal, Spanish
 text, no live demo, vendor-neutral examples where possible, and validate with
 make check DECK=intro-devops-es.
+
+Later revision: switch to a dark background, make CI/CD the key skeleton of
+the talk, expand the content depth for a full hour, and add a final questions
+slide.
 ```
 
 ## Intake
@@ -33,20 +37,20 @@ make check DECK=intro-devops-es.
 | Speaker profile | Use shared speaker data with deck-specific talk role/tags |
 | Deliverables | Slidev HTML deck, local validation, local preview before push |
 | Desired slug | `intro-devops-es` |
-| Background mode | light |
-| Palette | `palette-crystal` |
+| Background mode | dark |
+| Palette | `palette-aurora` |
 
 ## Visual Direction
 
 | Item | Decision |
 | --- | --- |
-| Background mode | light |
-| Palette | `palette-crystal` |
-| Palette rationale | Crystal Day supports teaching, close reading, and a clean executive-tech visual language for a 60-minute introductory session |
+| Background mode | dark |
+| Palette | `palette-aurora` |
+| Palette rationale | Enterprise Aurora gives the deck a technical operations mood with strong projector contrast while keeping the teaching surfaces readable |
 | Motion level | medium |
 | Media style | Vue/SVG iceberg, local editorial images, diagrams, architecture layers, icon grids, comparison table, mockups, maturity curve, callout stack |
 | Image-bearing slides | DevOps mindset/culture, modern software lifecycle, cloud capabilities |
-| Visual rhythm | cover, iceberg sequence, speaker profile, agenda, problem framing, quote, comparison, lifecycle layers, swimlane, browser mockups, icon grids, maturity curve, close/Q&A |
+| Visual rhythm | cover, iceberg sequence, speaker profile, agenda, problem framing, quote, CI/CD spine, sequence diagram, comparison, lifecycle layers, swimlane, decision matrix, browser mockups, icon grids, maturity curve, close, Q&A |
 
 ## Assumptions
 
@@ -55,13 +59,15 @@ make check DECK=intro-devops-es.
 - The two iceberg slides use a deck-local Vue/SVG illustration instead of an external image so both states stay aligned and render offline.
 - The deck includes both the requested personal introduction slides and the repository-required data-driven speaker profile slide.
 - After visual QA feedback, the opening explicitly frames DevOps as a mindset and cultural change that unites development and operations before introducing tools.
-- The deck targets 29 slides with the final 10-15 minutes reserved for Q&A.
+- After user feedback, the deck uses a dark background, treats CI/CD as the core skeleton for explaining DevOps, and expands the technical body for a 60-minute session.
+- The deck targets 39 slides with the final 10-15 minutes reserved for Q&A.
 
 ## Questions Resolved Before Execution
 
 - Critical context is complete in the user-provided prompt; no blocking clarification questions were required.
 - Certifications are based on the user-provided list and curated for relevance to the talk.
 - Local deployment before push is required by the latest user instruction.
+- The requested final questions are implemented as a separate final Q&A slide, not only as prompts inside the closing slide.
 
 ## Acceptance Criteria
 
@@ -123,11 +129,12 @@ Acceptance:
 | --- | --- | --- |
 | Opening | Set promise and human credibility | 4 |
 | Foundations | Explain DevOps as cultural change, why it exists, and what it is not | 6 |
-| Delivery system | Show how software travels to production | 5 |
+| CI/CD skeleton | Use CI/CD as the central path from code to operation | 10 |
+| Delivery system | Show how software travels to production and how capabilities connect to the pipeline | 5 |
 | Capabilities | Cover infrastructure, artifacts, quality, security, observability, and cloud | 8 |
 | Evolution | Connect DevOps to developer experience and Platform Engineering | 3 |
 | Learning path | Give practical next steps and credibility accelerators | 2 |
-| Close | Recap and Q&A | 1 |
+| Close | Recap, next steps, and Q&A | 2 |
 
 ## Asset Plan
 
@@ -153,6 +160,7 @@ Acceptance:
 | Software lifecycle and platform layers | `ArchitectureLayers`, `SwimlaneFlow` | shared wrappers copied from template |
 | Tool and cloud maps | `IconGrid` | shared wrapper copied from template |
 | CI/CD and observability surfaces | `BrowserMockup` | shared wrapper copied from template |
+| CI/CD skeleton and delivery trade-offs | `.cicd-spine`, `SequenceDiagram`, `DecisionMatrix`, `MetricStrip` | deck-local CSS plus shared wrappers |
 | Learning path | `MaturityCurve` | shared wrapper copied from template |
 | Memorable insight | `QuoteFrame` | shared wrapper copied from template |
 
@@ -167,7 +175,7 @@ Acceptance:
 
 ## Handoff Notes
 
-- Commands run: `git diff --check`; `npm run check:agent`; `make check DECK=intro-devops-es`; `make dev DECK=intro-devops-es PORT=4100`; Playwright screenshot pass at 1440x900 across 53 visible states; Slidev overview screenshot capture.
-- Files changed: `decks/intro-devops-es/`, `AGENTS.md`, `.agents/skills/`, and deck-generation/visual-QA docs.
+- Commands run: `git diff --check`; `make check DECK=intro-devops-es`; `make dev DECK=intro-devops-es PORT=4100`; Playwright screenshot pass at 1440x900 across 71 visible states; Slidev overview screenshot capture; targeted screenshot recheck for deployment matrix, credentials, closing, and questions slides.
+- Files changed: `decks/intro-devops-es/`, `AGENTS.md`, `.agents/skills/slide-deck-generator/SKILL.md`, `docs/deck-generation-workflow.md`, `docs/deck-brief-template.md`, and `docs/slide-guidelines.md`.
 - Known limitations: certification badges are deck-local visual badges using compact code/issuer marks, not official third-party badge artwork.
 - Follow-up ideas: replace visual marks with official certification badge artwork if the speaker provides approved image assets; validate the exact public organization label for DevSecOps Village before public delivery.

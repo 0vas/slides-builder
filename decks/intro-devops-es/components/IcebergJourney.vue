@@ -123,12 +123,12 @@ const underwaterOpacity = computed(() => (props.mode === 'hidden' ? 0.96 : 0.24)
   align-items: center;
   border: 1px solid var(--deck-line);
   border-radius: 8px;
-  background: rgba(255,255,255,0.82);
+  background: rgba(21, 28, 42, 0.86);
   color: var(--deck-ink);
   font-size: 0.72rem;
   font-weight: 750;
   line-height: 1.18;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
 .iceberg-certs {
@@ -139,9 +139,9 @@ const underwaterOpacity = computed(() => (props.mode === 'hidden' ? 0.96 : 0.24)
   margin-top: 0;
   padding: 10px 12px 12px;
   border-radius: 8px;
-  border: 1px dashed color-mix(in srgb, var(--deck-blue) 48%, white);
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  border: 1px dashed color-mix(in srgb, var(--deck-blue) 58%, white);
+  background: rgba(15, 21, 32, 0.9);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
 }
 
 .iceberg-certs strong,

@@ -1,10 +1,10 @@
 @import "../../../shared/styles/theme.css";
 
 .intro-devops-es {
-  --iceberg-deep: #0f4c81;
+  --iceberg-deep: #06263f;
   --iceberg-mid: #2f80c5;
   --iceberg-light: #dff7ff;
-  --iceberg-line: rgba(15, 76, 129, 0.18);
+  --iceberg-line: rgba(223, 247, 255, 0.22);
 }
 
 .intro-devops-es .cover-title {
@@ -183,13 +183,35 @@
   line-height: 1.18;
 }
 
+.intro-devops-es .decision-matrix {
+  height: 320px;
+}
+
+.intro-devops-es .matrix-quadrants {
+  color: rgba(183, 194, 208, 0.13);
+  font-size: 1.26rem;
+}
+
+.intro-devops-es .matrix-point {
+  border-width: 2px;
+  color: #ffffff;
+  font-size: 0.82rem;
+  height: 38px;
+  min-width: 86px;
+  padding: 0 12px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+  width: auto;
+}
+
 .concept-card {
   min-height: 176px;
   padding: 22px;
   border: 1px solid var(--deck-line);
   border-radius: 8px;
-  background: color-mix(in srgb, var(--deck-panel) 90%, white);
-  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+  background:
+    radial-gradient(circle at 88% 10%, rgba(47, 129, 247, 0.14), transparent 34%),
+    linear-gradient(145deg, rgba(21, 28, 42, 0.94), rgba(8, 11, 16, 0.9));
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
 }
 
 .concept-card span,
@@ -231,7 +253,8 @@
   padding: 18px 20px;
   border: 1px solid var(--deck-line);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.72);
+  background:
+    linear-gradient(145deg, rgba(21, 28, 42, 0.92), rgba(8, 11, 16, 0.82));
 }
 
 .myth-card strong {
@@ -254,12 +277,80 @@
   margin-top: 34px;
 }
 
+.cicd-spine {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.cicd-stage {
+  border: 1px solid var(--deck-line);
+  border-radius: 8px;
+  min-height: 142px;
+  padding: 18px;
+  position: relative;
+  background:
+    radial-gradient(circle at 84% 12%, rgba(57, 197, 207, 0.16), transparent 38%),
+    linear-gradient(150deg, rgba(21, 28, 42, 0.95), rgba(8, 11, 16, 0.86));
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+}
+
+.cicd-stage::after {
+  background: var(--tone, var(--deck-blue));
+  border-radius: 999px;
+  content: "";
+  height: 4px;
+  inset: auto 18px 14px 18px;
+  opacity: 0.8;
+  position: absolute;
+}
+
+.cicd-stage.blue {
+  --tone: var(--deck-blue);
+}
+
+.cicd-stage.green {
+  --tone: var(--deck-green);
+}
+
+.cicd-stage.amber {
+  --tone: var(--deck-amber);
+}
+
+.cicd-stage.rose {
+  --tone: var(--deck-rose);
+}
+
+.cicd-stage span {
+  color: var(--tone, var(--deck-blue));
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+}
+
+.cicd-stage strong {
+  display: block;
+  font-size: 1.32rem;
+  line-height: 1.08;
+  margin-top: 16px;
+}
+
+.cicd-stage small {
+  color: var(--deck-muted);
+  display: block;
+  font-size: 0.86rem;
+  line-height: 1.26;
+  margin-top: 10px;
+}
+
 .step-chip {
   min-height: 118px;
   padding: 16px;
   border-radius: 8px;
   border: 1px solid var(--deck-line);
-  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(236,248,255,0.84));
+  background:
+    linear-gradient(180deg, rgba(21, 28, 42, 0.96), rgba(15, 21, 32, 0.86));
 }
 
 .step-chip strong {
@@ -292,8 +383,8 @@
   padding: 12px 16px;
   border-left: 4px solid var(--deck-blue);
   border-radius: 8px;
-  background: rgba(255,255,255,0.78);
-  box-shadow: 0 12px 26px rgba(15,23,42,0.06);
+  background: rgba(21, 28, 42, 0.88);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
 }
 
 .explain-list strong {
@@ -327,8 +418,10 @@
   text-align: center;
   padding: 14px;
   border-radius: 8px;
-  background: var(--deck-ink);
-  color: #ffffff;
+  border: 1px solid var(--deck-line);
+  background:
+    linear-gradient(145deg, rgba(21, 28, 42, 0.98), rgba(8, 11, 16, 0.9));
+  color: var(--deck-ink);
   font-size: 0.9rem;
 }
 

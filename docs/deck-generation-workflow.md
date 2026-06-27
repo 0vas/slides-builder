@@ -118,6 +118,7 @@ A generated deck satisfies this workflow when:
 - it reuses the catalog before creating new components;
 - it uses varied slide compositions, suitable media/diagrams, and purposeful
   staging or motion instead of long static text runs;
+- its narrative plan and slide count are credible for the requested duration;
 - it includes purposeful local image-bearing slides when the visual direction
   calls for them and does not explicitly ban images;
 - it includes enough frontmatter for the home page;

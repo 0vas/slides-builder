@@ -11,6 +11,9 @@ These guidelines are the shared design and content baseline for future
 - Use dark or black/keynote palettes only when the talk explicitly needs that
   mood.
 - Keep one main idea per slide and support it with a purposeful visual.
+- Scale deck depth to the requested duration. As a baseline, use about 24-32
+  slides for 30 minutes and 36-45 slides for 60 minutes, unless the brief
+  explicitly defines a workshop, demo-heavy session, or sparse keynote.
 - Vary composition based on content load. Dense diagrams may use a large left
   title; sections may use title plus subtitle; full-bleed visuals may use
   minimal copy.

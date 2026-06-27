@@ -29,7 +29,8 @@ an external policy/tool boundary requires approval.
 
 Before editing, write a short checklist in the working notes:
 
-- Content: required story points are represented and ordered for the audience.
+- Content: required story points are represented and ordered for the audience,
+  with slide count and section depth scaled to the requested duration.
 - Structure: every deck includes a title/cover slide, a data-driven speaker profile slide, and a final takeaway/Q&A or closing slide.
 - Structure: deck slug, frontmatter, brief, media, components, and styles follow repo conventions.
 - Style: palette is chosen from the local style catalog and background mode is recorded as light, dark, or black/keynote.

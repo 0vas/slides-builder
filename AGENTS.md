@@ -371,6 +371,10 @@ kill a running dev server when the requested deck cannot be resolved.
 - Include practical operating lessons, not only feature lists.
 - Prefer short phrases written for spoken delivery.
 - For a 30 minute talk, target roughly 24-32 slides.
+- For a 60 minute talk, target roughly 36-45 slides unless the format is a
+  workshop, demo-heavy session, or intentionally sparse keynote. The brief's
+  narrative plan must explain slide count and section depth relative to
+  duration.
 - Use section breaks every 5-7 slides to reset attention.
 - Include a clear final takeaway or operating model.
 - Section markers should read as intentional navigation, not decorative

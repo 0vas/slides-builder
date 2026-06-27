@@ -70,8 +70,8 @@ const visibleCerts = computed(() => certs.slice(0, props.limit))
   align-items: center;
   border-radius: 8px;
   border: 1px solid rgba(148, 163, 184, 0.32);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.07);
+  background: rgba(21, 28, 42, 0.9);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
 }
 
 .cert-mark {

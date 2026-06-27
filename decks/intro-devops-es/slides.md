@@ -5,10 +5,10 @@ info: |
   Presentación introductoria en español sobre DevOps, DevSecOps,
   Platform Engineering y una ruta práctica de aprendizaje.
 transition: slide-left
-background: "#f8fbff"
-class: intro-devops-es palette-crystal
+background: "#080b10"
+class: intro-devops-es palette-aurora
 defaults:
-  class: intro-devops-es palette-crystal
+  class: intro-devops-es palette-aurora
 routerMode: hash
 record: false
 download: false
@@ -105,10 +105,10 @@ transition: slide-up
 
 <div class="agenda-grid">
   <div v-click><span>01</span><strong>Por qué nace DevOps</strong><small>El problema real antes de hablar de herramientas.</small></div>
-  <div v-click><span>02</span><strong>Cómo viaja el software</strong><small>Desde código hasta producción.</small></div>
-  <div v-click><span>03</span><strong>Capacidades clave</strong><small>CI/CD, cloud, seguridad, calidad y observabilidad.</small></div>
-  <div v-click><span>04</span><strong>Evolución natural</strong><small>DevSecOps y Platform Engineering.</small></div>
-  <div v-click><span>05</span><strong>Ruta para empezar</strong><small>Aprendizaje, práctica y credibilidad.</small></div>
+  <div v-click><span>02</span><strong>CI/CD como esqueleto</strong><small>La ruta del cambio desde código hasta aprendizaje.</small></div>
+  <div v-click><span>03</span><strong>Capacidades alrededor</strong><small>Cloud, contenedores, seguridad, calidad y observabilidad.</small></div>
+  <div v-click><span>04</span><strong>Evolución natural</strong><small>DevSecOps, Platform Engineering y experiencia de desarrollo.</small></div>
+  <div v-click><span>05</span><strong>Ruta y preguntas</strong><small>Aprendizaje, certificaciones, cierre y conversación final.</small></div>
 </div>
 
 <!--
@@ -272,6 +272,211 @@ transition: slide-up
 
 <!--
 Notas: Mostrar que DevOps atraviesa todo el ciclo, no solo la parte final. Para entender DevOps hay que entender cómo se construye una aplicación y cómo se mueve entre ambientes.
+-->
+
+---
+transition: slide-left
+---
+
+<span class="kicker">Esqueleto de la sesión</span>
+
+## CI/CD como columna vertebral
+
+<div class="cicd-spine">
+  <article v-click class="cicd-stage blue"><span>01</span><strong>Código</strong><small>Cambio pequeño, revisable y trazable.</small></article>
+  <article v-click class="cicd-stage green"><span>02</span><strong>Build</strong><small>Compilar una vez y producir artefacto.</small></article>
+  <article v-click class="cicd-stage amber"><span>03</span><strong>Test</strong><small>Feedback temprano sobre calidad.</small></article>
+  <article v-click class="cicd-stage rose"><span>04</span><strong>Secure</strong><small>Riesgo visible antes de producción.</small></article>
+  <article v-click class="cicd-stage blue"><span>05</span><strong>Package</strong><small>Imagen, paquete o binario versionado.</small></article>
+  <article v-click class="cicd-stage green"><span>06</span><strong>Release</strong><small>Promoción entre ambientes.</small></article>
+  <article v-click class="cicd-stage amber"><span>07</span><strong>Deploy</strong><small>Cambio controlado y reversible.</small></article>
+  <article v-click class="cicd-stage rose"><span>08</span><strong>Operate</strong><small>Observabilidad y aprendizaje.</small></article>
+</div>
+
+<!--
+Notas: Presentar CI/CD como el esqueleto pedagógico de la charla. Todo lo demás se engancha a esta línea: Git, pruebas, artefactos, contenedores, seguridad, cloud, observabilidad y platform engineering.
+-->
+
+---
+transition: slide-left
+---
+
+<span class="kicker">CI/CD</span>
+
+## CI, delivery y deployment no son lo mismo
+
+<ComparisonTable
+  first-column="Concepto"
+  :columns="['Integración continua', 'Entrega continua', 'Despliegue continuo']"
+  :rows="[
+    { label: 'Pregunta', values: ['¿El cambio integra bien?', '¿Está listo para liberar?', '¿Puede ir a producción automáticamente?'], preferred: 1 },
+    { label: 'Señal', values: ['Build y pruebas rápidas', 'Artefacto promovible', 'Cambio desplegado con control'], preferred: 1 },
+    { label: 'Riesgo', values: ['Ramas largas y conflictos', 'Aprobaciones tardías', 'Automatizar sin guardrails'], preferred: 1 },
+    { label: 'Madurez', values: ['Feedback temprano', 'Release confiable', 'Operación muy disciplinada'], preferred: 1 }
+  ]"
+/>
+
+<!--
+Notas: Aclarar esta diferencia temprano. Muchas personas dicen CI/CD como una sola palabra, pero cada parte cambia una pregunta distinta del sistema de entrega.
+-->
+
+---
+transition: slide-left
+---
+
+<span class="kicker">Pipeline anatomy</span>
+
+## Un pipeline útil responde cuatro preguntas
+
+<CalloutStack
+  :items="[
+    { label: 'Correcto', title: '¿El cambio hace lo esperado?', detail: 'Pruebas, contratos, linting y revisión.', tone: 'blue' },
+    { label: 'Seguro', title: '¿Introduce riesgo conocido?', detail: 'Secretos, dependencias, SAST, IaC y políticas.', tone: 'green' },
+    { label: 'Promovible', title: '¿Tenemos un artefacto confiable?', detail: 'Versionado, trazabilidad y evidencia.', tone: 'amber' },
+    { label: 'Operable', title: '¿Sabremos si falla?', detail: 'Logs, métricas, alertas, rollback y ownership.', tone: 'rose' }
+  ]"
+/>
+
+<!--
+Notas: Esta slide da criterio. No enumerar herramientas; explicar que un pipeline es un mecanismo de preguntas automáticas sobre el cambio.
+-->
+
+---
+transition: slide-up
+---
+
+<span class="kicker">Pull request</span>
+
+## El PR es la primera puerta de calidad
+
+<SequenceDiagram
+  aria-label="Flujo de revisión y validación de pull request"
+  :participants="[
+    { id: 'dev', label: 'Developer' },
+    { id: 'repo', label: 'Repositorio' },
+    { id: 'ci', label: 'CI' },
+    { id: 'team', label: 'Equipo' }
+  ]"
+  :messages="[
+    { from: 'dev', to: 'repo', label: 'Push + PR pequeño', tone: 'blue' },
+    { from: 'repo', to: 'ci', label: 'Build, tests, análisis', tone: 'green' },
+    { from: 'ci', to: 'team', label: 'Evidencia visible', tone: 'amber' },
+    { from: 'team', to: 'repo', label: 'Review + merge con criterio', tone: 'rose' }
+  ]"
+/>
+
+<!--
+Notas: Reforzar que el PR no es burocracia si trae señales útiles. Un buen PR debe ser pequeño, entendible, revisable y acompañado por checks automáticos.
+-->
+
+---
+transition: slide-left
+---
+
+<span class="kicker">Build</span>
+
+## Construir una vez, promover muchas
+
+<ArchitectureLayers
+  :layers="[
+    { label: 'Fuente', title: 'Código versionado', detail: 'Commit, autor, cambios y dependencias claras.', tone: 'blue' },
+    { label: 'Build', title: 'Proceso reproducible', detail: 'Misma entrada debe producir el mismo resultado.', tone: 'green' },
+    { label: 'Artefacto', title: 'Paquete inmutable', detail: 'Binario, imagen o paquete con versión.', tone: 'amber' },
+    { label: 'Promoción', title: 'Ambientes controlados', detail: 'El mismo artefacto avanza con evidencia.', tone: 'rose' }
+  ]"
+/>
+
+<!--
+Notas: Este concepto evita el clásico error de compilar diferente en cada ambiente. El build debe producir evidencia y un artefacto que pueda rastrearse.
+-->
+
+---
+transition: slide-left
+---
+
+<span class="kicker">Pruebas</span>
+
+## No todas las pruebas cumplen el mismo trabajo
+
+<TimelineFlow
+  :items="[
+    { when: 'Rápidas', title: 'Unitarias', detail: 'Feedback barato sobre lógica local.', tone: 'blue' },
+    { when: 'Contrato', title: 'Integración', detail: 'Confianza entre componentes y APIs.', tone: 'green' },
+    { when: 'Usuario', title: 'End-to-end', detail: 'Flujos críticos, pocos y bien elegidos.', tone: 'amber' },
+    { when: 'Producción', title: 'Monitoreo sintético', detail: 'Verificación continua del servicio real.', tone: 'rose' }
+  ]"
+/>
+
+<!--
+Notas: Explicar trade-off: mientras más realista la prueba, más costosa y frágil suele ser. Un pipeline sano combina capas.
+-->
+
+---
+transition: slide-up
+---
+
+<span class="kicker">Release</span>
+
+## Ambientes: promoción con evidencia
+
+<SwimlaneFlow
+  aria-label="Promoción de artefactos entre ambientes"
+  :lanes="[
+    { label: 'Dev', steps: ['Build', 'Tests rápidos', 'Imagen versionada', 'Feedback'] },
+    { label: 'Stage', steps: ['Integración', 'Seguridad', 'Validación funcional', 'Aprobación'] },
+    { label: 'Prod', steps: ['Deploy gradual', 'Monitoreo', 'Rollback listo', 'Aprendizaje'] }
+  ]"
+/>
+
+<!--
+Notas: Evitar vender demasiados ambientes como madurez. El punto es que cada ambiente debe tener un propósito claro y no repetir trabajo sin sentido.
+-->
+
+---
+transition: slide-left
+---
+
+<span class="kicker">Deployment strategies</span>
+
+## Desplegar es gestionar riesgo
+
+<DecisionMatrix
+  aria-label="Matriz de estrategias de despliegue"
+  x-label="Exposición"
+  y-label="Control"
+  :quadrants="['Manual', 'Canary', 'Blue/Green', 'Feature flag']"
+  :items="[
+    { label: 'Big bang', x: 27, y: 23, tone: 'rose' },
+    { label: 'Rolling', x: 50, y: 48, tone: 'amber' },
+    { label: 'Canary', x: 66, y: 76, tone: 'green' },
+    { label: 'Blue/Green', x: 80, y: 57, tone: 'blue' },
+    { label: 'Flag', x: 89, y: 84, tone: 'green' }
+  ]"
+/>
+
+<!--
+Notas: No todas las organizaciones necesitan lo mismo. La idea es reducir blast radius y aprender antes de exponer el cambio a todos.
+-->
+
+---
+transition: slide-left
+---
+
+<span class="kicker">Fallas</span>
+
+## Cuando el pipeline falla, debe enseñar
+
+<MetricStrip
+  :metrics="[
+    { label: 'Tiempo', value: '<10m', delta: 'Feedback útil antes de perder contexto', tone: 'blue' },
+    { label: 'Causa', value: 'Clara', delta: 'El error dice qué se rompió', tone: 'green' },
+    { label: 'Dueño', value: 'Visible', delta: 'Alguien puede actuar sin buscar culpables', tone: 'amber' },
+    { label: 'Acción', value: 'Próxima', delta: 'Reintentar, corregir, revertir o escalar', tone: 'rose' }
+  ]"
+/>
+
+<!--
+Notas: Un pipeline rojo no es fracaso si entrega información accionable. El problema es un pipeline lento, opaco o ignorado.
 -->
 
 ---
@@ -642,7 +847,7 @@ Notas: No prometer que una certificación consigue trabajo. Presentarla como ace
 transition: fade
 ---
 
-<span class="kicker">Cierre + Q&A</span>
+<span class="kicker">Cierre</span>
 
 ## Qué llevarte de esta sesión
 
@@ -654,15 +859,36 @@ transition: fade
   <strong>Aprende construyendo evidencia</strong>
 </div>
 
+<CalloutStack
+  :items="[
+    { label: 'Esta semana', title: 'Elige una aplicación pequeña', detail: 'Ponla en Git, agrega pruebas y crea un pipeline simple.', tone: 'blue' },
+    { label: 'Este mes', title: 'Agrega operación real', detail: 'Containeriza, despliega, monitorea y documenta el aprendizaje.', tone: 'green' },
+    { label: 'Siguiente paso', title: 'Construye portafolio con evidencia', detail: 'README, decisiones, errores, métricas y mejoras.', tone: 'amber' }
+  ]"
+/>
+
+<!--
+Notas: Cerrar con la idea central: DevOps no es memorizar herramientas, es mejorar el sistema de entrega y aprendizaje del software. La recomendación es aprender haciendo, no acumulando nombres de herramientas.
+-->
+
+---
+transition: fade
+---
+
+<span class="kicker">Preguntas</span>
+
+## Abrimos conversación
+
 <div class="qa-frame">
   <ul>
     <li>¿Qué parte de la ruta te falta fortalecer?</li>
     <li>¿Qué práctica podrías aplicar esta semana?</li>
     <li>¿Qué herramienta estás aprendiendo sin entender aún la capacidad?</li>
+    <li>¿Dónde se rompe hoy tu flujo: código, build, pruebas, seguridad, deploy u operación?</li>
   </ul>
   <div class="question-mark">?</div>
 </div>
 
 <!--
-Notas: Reservar aquí 10 a 15 minutos para preguntas. Cerrar con la idea central: DevOps no es memorizar herramientas, es mejorar el sistema de entrega y aprendizaje del software.
+Notas: Reservar aquí 10 a 15 minutos para preguntas. Si no aparecen preguntas de inmediato, usar las cuatro preguntas en pantalla para iniciar conversación.
 -->
