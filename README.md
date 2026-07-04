@@ -1,4 +1,3 @@
-# Slides Builder
 
 [![Deploy Slides](https://github.com/0vas/slides-builder/actions/workflows/deploy.yml/badge.svg)](https://github.com/0vas/slides-builder/actions/workflows/deploy.yml)
 [![Release Package](https://github.com/0vas/slides-builder/actions/workflows/release.yml/badge.svg)](https://github.com/0vas/slides-builder/actions/workflows/release.yml)
