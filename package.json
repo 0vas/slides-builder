@@ -17,7 +17,7 @@
     "package": "node scripts/release.mjs package"
   },
   "dependencies": {
-    "@slidev/cli": "^52.15.2",
+    "@slidev/cli": "^52.16.0",
     "@slidev/theme-default": "^0.25.0",
     "@vueuse/motion": "^3.0.3",
     "echarts": "^6.1.0",
