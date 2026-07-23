@@ -3,6 +3,8 @@ import { basename, dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { spawnSync } from 'node:child_process'
 
+import { deckBasePath } from './deployment-paths.mjs'
+
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const decksDir = join(root, 'decks')
 const repoName = basename(root)
@@ -180,7 +182,12 @@ function freePort(port) {
 }
 
 function basePath(slug) {
-  return process.env.BASE_PATH ?? `/${repoName}/${slug}/`
+  return deckBasePath({
+    slug,
+    repoName,
+    basePath: process.env.BASE_PATH,
+    siteBasePath: process.env.SITE_BASE_PATH
+  })
 }
 
 function installFavicon(outputDir, href) {

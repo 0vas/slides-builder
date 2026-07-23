@@ -246,6 +246,10 @@ kill a running dev server when the requested deck cannot be resolved.
   Do not rely on `actions/configure-pages` to create the Pages site; repository
   or organization policy can block that call for `GITHUB_TOKEN` with
   `Resource not accessible by integration`.
+- For a custom domain published by a custom GitHub Actions workflow, keep the
+  domain in **Settings > Pages** and configure the production build for the
+  domain-root base path. Do not rely on a repository or artifact `CNAME` file;
+  GitHub ignores it for custom Actions workflows.
 - Keep `all`, current stable deck slugs, and `custom` as deploy targets.
 - When a new deck becomes stable, add its slug to the workflow dropdown so the
   owner can deploy it without remembering exact folder names.

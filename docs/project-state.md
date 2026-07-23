@@ -147,6 +147,13 @@ See `docs/component-catalog.md` for the authoritative list and rules.
 `.github/workflows/deploy.yml` publishes GitHub Pages. GitHub Pages must be
 enabled once in **Settings > Pages** with source **GitHub Actions**.
 
+The production site uses `https://slides.0vas.com/`. The workflow sets
+`SITE_BASE_PATH=/`, so the generated index is served at the domain root and
+each deck keeps its own `/<slug>/` path. The custom domain is stored in the
+repository's **Settings > Pages** configuration; GitHub ignores `CNAME` files
+for custom Actions workflows. Without `SITE_BASE_PATH`, local and generic
+project-site builds retain the `/slides/<slug>/` path.
+
 Manual targets:
 
 - `all`: publish every deck.

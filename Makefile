@@ -47,6 +47,8 @@ pptx:
 
 check:
 	node --check scripts/deck.mjs
+	node --check scripts/deployment-paths.mjs
+	npm run test:deployment
 	node --check scripts/release.mjs
 	node --check scripts/validate-agent-assets.mjs
 	npm run check:agent

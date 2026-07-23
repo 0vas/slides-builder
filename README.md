@@ -291,6 +291,20 @@ site because some repository or organization policies block that call for
 The generated home at `dist/index.html` renders deck cards with preview, title,
 and description from each deck frontmatter.
 
+The production workflow targets the custom domain
+`https://slides.0vas.com/`. It builds the site index at `/`, each deck at
+`/<deck>/`. The domain itself remains configured in **Settings > Pages**;
+GitHub ignores `CNAME` files when Pages uses a custom Actions workflow. Local
+builds keep the GitHub project-site prefix `/slides/` by default. To reproduce
+the custom-domain build locally, run:
+
+```bash
+SITE_BASE_PATH=/ npm run build:all
+```
+
+`BASE_PATH` remains available as an exact per-deck override for exceptional
+builds.
+
 ## Media And Data Rules
 
 - Deck-owned media lives in `decks/<slug>/public/media/`.
